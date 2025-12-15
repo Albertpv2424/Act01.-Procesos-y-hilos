@@ -10,16 +10,17 @@ public class cFilPrincipal {
     System . out . println ("Fil secundari iniciat.");
 
     cFil vObjecteFil = new cFil ("#1");
+    vObjecteFil.sTemporitzacio(100); //Llamamos a sTemporitzacio de cFil para acelerar el proceso
 
     //alternativa: innecessari
-    Thread vFil = new Thread (vObjecteFil);
+    Thread vFil = new Thread (vObjecteFil); //Crea el hilo principal a partir del objeto cFil
 
     //alternativa: vObjecteFil
-    vFil . start ();
+    vFil . start (); //Ejecutamos el hilo secundario
 
     System . out . println ("Iniciant execució procés principal");
 
-    try {
+    try { //Bucle proceso mas lento, y cuando se despierta manda mensaje
 
       for (int vComptador = 0; vComptador < 10; vComptador ++) {
 
